@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:from_zero_to_hero_ht/features/products/presentation/product_detail_page.dart';
 import 'package:from_zero_to_hero_ht/features/products/presentation/providers/product_provider.dart';
+import 'package:from_zero_to_hero_ht/features/products/presentation/widgets/product_card.dart';
 
 class ProductBycategoryConsumer extends ConsumerWidget {
   const ProductBycategoryConsumer(this.category, {super.key});
@@ -23,19 +24,7 @@ class ProductBycategoryConsumer extends ConsumerWidget {
               itemBuilder: (context, index) {
                 final product = data[index];
                 //TODO: Implementem os cards com base na especificacao do M3.
-                return Card(
-                  child: ListTile(
-                    title: Text(product.title),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProductDetail(product: product),
-                        ),
-                      );
-                    },
-                  ),
-                );
+                return ProdutoCard(product: product);
               },
             );
           },
