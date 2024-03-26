@@ -23,13 +23,16 @@ class ProductBycategoryConsumer extends ConsumerWidget {
               itemCount: data.length,
               itemBuilder: (context, index) {
                 final product = data[index];
-                //TODO: Implementem os cards com base na especificacao do M3.
                 return ProdutoCard(product: product);
               },
             );
           },
           error: (error, stackTrace) {
-            return Center(child: Text(error.toString()));
+            return Center(
+              child: Text(
+                error.toString(),
+              ),
+            );
           },
           loading: () {
             return const Center(child: CircularProgressIndicator());
